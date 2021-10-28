@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Muli:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Muli", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+  justify-content: center;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  flex: 1;
+  margin: 1rem;
+  position: relative;
+  transition: flex 0.7s ease-in;
+  padding: 0;
+}
+
+.panel h3 {
+  font-size: 2rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 10;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 500px) {
+  .container {
+    flex-direction: column;
+    height: 90vh;
+  }
+
+  .panel h3 {
+    opacity: 1;
+    bottom: 50%;
+    left: 50%;
+    font-size: 1rem;
+    transform: translateX(-50%) translateY(50%);
+  }
+  .panel.active h3 {
+    opacity: 1;
+    bottom: 1rem;
+    left: 1rem;
+    transform: none;
+    transition: opacity 0.3s ease-in 0.4s;
+  }
+
+  .panel:nth-of-type(2),
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(6),
+  .panel:nth-of-type(8) {
+    display: none;
+  }
+}
